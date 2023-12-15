@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "77391098706",
+    "project_id": "hadassesment",
+    "storage_bucket": "hadassesment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77391098706:android:7387ec7d13b8b4324c008b",
+        "android_client_info": {
+          "package_name": "com.hadassesment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaLjoAy8RNaP4z-NuLQJFkuzJR6e3NgdM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
