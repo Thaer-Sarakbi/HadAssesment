@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import AuthStack from './navigation/AuthStack';
 import { firebase } from '@react-native-firebase/firestore'
 import { useDispatch, useSelector } from 'react-redux';
-import { User } from './types/types';
 import { setUser } from './redux/authSlice';
 import BottomNavigator from './navigation/BottomNavigator';
 import { AppDispatch } from './redux/store';
 
 const AppContainer = () => {
-  const [user, setCurrentUser] = useState()
+  const [user, setCurrentUser] = useState<any | null>(null)
   console.log(user)
 
   const dispatch = useDispatch<AppDispatch>()
@@ -19,7 +18,6 @@ const AppContainer = () => {
         setCurrentUser(u)
     })
   },[])
-
 
   if(user){
     return(

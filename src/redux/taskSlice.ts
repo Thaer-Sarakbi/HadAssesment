@@ -2,14 +2,24 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import firestore from '@react-native-firebase/firestore'
 import { tasks } from '../types/types';
 
-export const getTasks = createAsyncThunk("tasks/getTasks", async () => {
+interface MyState {
+  data: Array<tasks>
+  status: string,
+  error: string | undefined
+}
 
-  const tasksList = await firestore()
+export const getTasks = createAsyncThunk("tasks/getTasks", async () => {
+  let tasksList: tasks[] = []
+  
+   await firestore()
   .collection('tasks')
   .orderBy('creationDate', "desc")
   .get()
   .then(querySnapshot => { 
-    return querySnapshot.docs
+    querySnapshot.docs.forEach((documentSnapshot) => {
+      documentSnapshot.data().id = documentSnapshot.id
+      tasksList.push(documentSnapshot.data() as tasks)
+    })
   });
   
   return tasksList
@@ -21,7 +31,7 @@ const tasksSlice = createSlice({
     data: [],
     status: '',
     error: undefined
-  } as tasks,
+  } as MyState,
   reducers: {
 
   },

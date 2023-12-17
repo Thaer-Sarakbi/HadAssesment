@@ -7,7 +7,7 @@ interface MyState {
   status: string
 }
 
-export const setUser = createAsyncThunk("auth/setUser",async(user: User) => {
+export const setUser = createAsyncThunk("auth/setUser",async(user: User | any) => {
   let userData
 
   await firestore().collection('users').get()

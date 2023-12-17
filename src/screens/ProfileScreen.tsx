@@ -15,6 +15,7 @@ interface ProfileState {
 
 function ProfileScreen(): JSX.Element {
   const user = useSelector((state: ProfileState) => state.auth.user)
+  console.log(user)
 
   const onSignOut = async() => {
     await auth().signOut().then(function() {
@@ -37,7 +38,7 @@ function ProfileScreen(): JSX.Element {
             <View style={{ width: 90, height: 90, borderRadius: 50, backgroundColor: '#F5F5F5', justifyContent: 'center', alignItems: 'center' }}>
               <MaterialCommunityIcons name="account-outline" color={'#BDBDBD'} size={60} />
             </View>
-            <Text style = {{ color: '#fff', fontSize: 15, marginTop: 10 }}>{user.name}</Text>
+            <Text style = {{ color: '#fff', fontSize: 15, marginTop: 10 }}>{user?.name}</Text>
             <Text style = {{ color: '#fff', fontSize: 15 }}>Joined in December 2023</Text>
           </ImageBackground>
           

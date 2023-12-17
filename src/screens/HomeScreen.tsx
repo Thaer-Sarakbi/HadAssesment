@@ -51,11 +51,11 @@ const HomeScreen = () => {
             <FlatList
               keyExtractor={(item) => item?.id.toString()}
               data={tasks}
-              renderItem={(item) => {
-                const data = item.item?.data()
+              renderItem={({item}) => {
+                const data = item
                   return(
                     <TouchableOpacity>
-                      <Card item={item.item.data()} />
+                      <Card item={item} />
                     </TouchableOpacity>
                   )
                 } 
